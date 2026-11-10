@@ -11,6 +11,7 @@ body {
     color: white;
 }
 
+/* ================= HEADER ================= */
 header {
     position: fixed;
     top: 0;
@@ -20,7 +21,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     z-index: 1000;
+    transition: background .4s, color .4s;
 }
 
 .logo {
@@ -44,23 +48,38 @@ nav a:hover {
     transform: translateY(-5px);
 }
 
+/* ================= UMUMIY ================= */
+section {
+    padding: 100px 10%;
+    scroll-margin-top: 80px;
+    transition: background .4s, color .4s;
+}
+
+.title {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+
+/* ================= HERO ================= */
 .hero {
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
     padding: 120px 10%;
 }
 
-.text h1 {
+.hero .text h1 {
     font-size: 70px;
 }
 
-.text span {
+.hero .text span {
     color: gold;
 }
 
-.text p {
+.hero .text p {
     font-size: 22px;
     margin: 20px 0;
 }
@@ -72,181 +91,339 @@ nav a:hover {
     color: white;
     text-decoration: none;
     border-radius: 50px;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
 }
 
 .photo img {
     width: 400px;
+    max-width: 100%;
     border-radius: 30px;
     box-shadow: 0 0 40px cyan;
 }
 
-.title {
-    text-align: center;
-    font-size: 50px;
-    margin-bottom: 50px;
+/* ================= MEN HAQIMDA ================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
+.card {
+    background: rgba(0, 0, 0, .6);
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 225, 255, .3);
+    transition: .3s;
+}
 
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px cyan;
+}
 
+.card h3 {
+    color: #00e1ff;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
 
+.card p {
+    font-size: 20px;
+}
+
+/* ================= OILAM ================= */
 .family-wrapper {
     display: flex;
-
-    
     justify-content: center;
-
-    gap: 300px;
-
-   
     align-items: center;
-
+    flex-wrap: wrap;
+    gap: 60px;
     width: 100%;
-
-    padding: 20px 10%;
 }
-
-
 
 .flip-scene {
     width: 300px;
     height: 350px;
-
-
     perspective: 1000px;
 }
-
-
-
 
 .flip-card {
     width: 100%;
     height: 100%;
-
     position: relative;
-
     transform-style: preserve-3d;
-
     transition: transform 0.6s ease;
 }
-
-
-
 
 .flip-scene:hover .flip-card {
     transform: rotateY(180deg);
 }
 
-
-
-
 .flip-front,
 .flip-back {
     position: absolute;
-
     width: 100%;
     height: 100%;
-
     border-radius: 20px;
-
     backface-visibility: hidden;
-
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-
     overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-
-
-
 .flip-front span {
     width: 100%;
-
     padding: 15px;
-
     text-align: center;
-
     font-size: 25px;
-
     font-weight: bold;
-
     background: rgba(0, 0, 0, 0.6);
 }
 
-
-
-
 .flip-back {
     background-color: rgb(186, 192, 192);
-
+    color: #111;
     transform: rotateY(180deg);
-
-    display: flex;
-
-    justify-content: center;
-
     align-items: center;
-
     font-size: 22px;
-
     text-align: center;
-
     padding: 20px;
 }
-
-
-
 
 .dadam {
     background-image: url("./adam.jpg");
 }
 
-
-
 .oyim {
     background-image: url("./onam.jpg");
 }
-
-
-
 
 .ukam {
     background-image: url("./ukam.jpg");
 }
 
+/* ================= LOYIHALARIM ================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    justify-content: center;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    border: 1px solid rgba(0, 225, 255, .3);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px cyan;
+}
+
+.project-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: .5s;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px;
+    text-align: center;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #00e1ff;
+}
+
+.project-info p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    opacity: .85;
+}
+
+.project-btn {
+    margin-top: auto;
+    align-self: center;
+    padding: 10px 26px;
+    background: #0077ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.project-btn:hover {
+    background: #00e1ff;
+    transform: translateY(-4px);
+}
+
+/* ================= FOOTER ================= */
 footer {
     text-align: center;
     padding: 40px;
     background: rgba(0, 0, 0, .8);
+    transition: background .4s, color .4s;
 }
 
-
-
-
-.badge {
-    position: relative;
+/* ================= TEMA TUGMASI ================= */
+.theme-checkbox {
+    display: none;
 }
 
-.badge::after {
-    content: "20";
-
-    background-color: red;
-
+label.theme-switch {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    z-index: 2000;
+    width: 80px;
+    height: 40px;
+    padding: 0 9px;
     border-radius: 50px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    border: 2px solid #00e1ff;
+    box-shadow: 0 0 15px rgba(0, 225, 255, .5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background .5s, border-color .5s, box-shadow .5s;
+}
 
+/* Siljuvchi doira */
+label.theme-switch::after {
+    content: "";
     position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff, #c9d6ff);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
+    transition: transform .5s cubic-bezier(.68, -0.4, .27, 1.4);
+    z-index: 1;
+}
 
-    right: -5px;
-    top: -5px;
+label.theme-switch span {
+    position: relative;
+    z-index: 2;
+    font-size: 17px;
+    line-height: 1;
+    transition: transform .5s, opacity .5s;
+}
 
-    width: 20px;
-    height: 20px;
+label.theme-switch .moon { opacity: 1; }
+label.theme-switch .sun { opacity: .4; }
 
-    text-align: center;
+/* ================= KUN REJIMI (tugma) ================= */
+body.light label.theme-switch {
+    background: linear-gradient(135deg, #56ccf2, #ffd86f);
+    border-color: #ff9f1c;
+    box-shadow: 0 0 18px rgba(255, 159, 28, .7);
+}
+
+body.light label.theme-switch::after {
+    transform: translateX(40px);
+    background: linear-gradient(135deg, #fff7d1, #ffffff);
+}
+
+body.light label.theme-switch .moon {
+    opacity: .4;
+    transform: rotate(-40deg);
+}
+
+body.light label.theme-switch .sun {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* ================= KUN REJIMI (butun sayt) ================= */
+body.light header,
+body.light footer {
+    background: #fff;
+    color: #111;
+}
+
+body.light section {
+    background: #f0f4ff;
+    color: #111;
+}
+
+body.light .card,
+body.light .project-card {
+    background: #fff;
+    color: #111;
+    border-color: #cfd9ff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+}
+
+body.light .card h3,
+body.light .project-info h3 {
+    color: #0077ff;
+}
+
+body.light .card:hover,
+body.light .project-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 119, 255, .4);
+}
+
+body.light .flip-front span {
+    color: #fff;
+}
+
+/* ================= TELEFON UCHUN ================= */
+@media (max-width: 800px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero .text h1 {
+        font-size: 42px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    nav a {
+        margin: 5px 5px 0 0;
+        display: inline-block;
+    }
 }
