@@ -1,97 +1,138 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Poppins, sans-serif;
+    font-family: Arial, sans-serif;
     scroll-behavior: smooth;
 }
-video{
-    position: fixed;
-    z-index: -1;
-}
+
 body {
+    min-height: 100vh;
     color: white;
-    transition: background .4s, color .4s;
+    background: #050817;
+    overflow-x: hidden;
 }
 
+.background-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 5, 20, .48);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* HEADER */
 
 header {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    padding: 20px 10%;
-    background: rgba(0, 0, 0, .8);
+    min-height: 76px;
+    padding: 14px 6%;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(12px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 14px;
     z-index: 1000;
-    transition: background .4s, color .4s;
 }
 
 .logo {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
-    color: #064a85;
+    color: #0789d8;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
 }
 
 nav a {
     text-decoration: none;
     color: white;
     background: #0077ff;
-    padding: 12px 20px;
+    padding: 11px 17px;
     border-radius: 10px;
-    margin-left: 10px;
     transition: .3s;
 }
 
 nav a:hover {
-    background: #00e1ff;
-    transform: translateY(-5px);
+    background: #00cfff;
+    color: #061126;
+    transform: translateY(-3px);
 }
 
+/* SECTIONS */
 
 section {
-    padding: 100px 10%;
-    scroll-margin-top: 80px;
-    transition: background .4s, color .4s;
+    padding: 100px 7%;
+    scroll-margin-top: 85px;
 }
 
 .title {
     text-align: center;
-    font-size: 50px;
-    margin-bottom: 50px;
+    font-size: 46px;
+    margin-bottom: 48px;
+    background: linear-gradient(90deg, #00e1ff, #9274ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
+/* HOME */
 
 .hero {
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 40px;
-    padding: 120px 10%;
+    gap: 55px;
+    padding: 125px 10% 70px;
+}
+
+.hero .text {
+    flex: 1 1 600px;
+    min-width: 0;
 }
 
 .hero .text h1 {
-    font-size: 70px;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1.15;
 }
 
 .hero .text span {
-    color: gold;
+    color: #ffd400;
 }
 
 .hero .text p {
-    font-size: 22px;
-    margin: 20px 0;
+    max-width: 850px;
+    font-size: 19px;
+    line-height: 1.65;
+    margin: 22px 0;
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 30px;
-    background: #7d5fff;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #7d5fff, #4a8cff);
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -100,62 +141,72 @@ section {
 
 .btn:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 200, 255, .35);
+}
+
+.photo {
+    flex: 0 0 350px;
+    width: 350px;
 }
 
 .photo img {
-    width: 400px;
-    max-width: 100%;
-    border-radius: 30px;
-    box-shadow: 0 0 40px cyan;
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 28px;
+    border: 2px solid #00e1ff;
+    box-shadow: 0 0 38px rgba(0, 225, 255, .55);
 }
 
+/* ABOUT */
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .card {
-    background: rgba(0, 0, 0, .6);
-    padding: 40px 20px;
+    background: rgba(0, 0, 0, .65);
+    padding: 35px 20px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(0, 225, 255, .3);
+    border: 1px solid rgba(0, 225, 255, .35);
     transition: .3s;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 25px cyan;
+    box-shadow: 0 0 25px rgba(0, 225, 255, .45);
 }
 
 .card h3 {
     color: #00e1ff;
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 23px;
 }
 
 .card p {
-    font-size: 20px;
+    font-size: 19px;
 }
 
+/* FAMILY */
 
-/* ===== OILAM ===== */
 .family-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 60px;
-    width: 100%;
+    gap: 35px;
 }
 
 .flip-scene {
-    width: 300px;
-    height: 350px;
+    width: 280px;
+    height: 330px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -165,7 +216,7 @@ section {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.6s ease;
+    transition: transform .7s ease;
 }
 
 .flip-scene:hover .flip-card,
@@ -176,15 +227,13 @@ section {
 .flip-front,
 .flip-back {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     border-radius: 20px;
+    overflow: hidden;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -196,18 +245,19 @@ section {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    background: rgba(0, 0, 0, .65);
 }
 
 .flip-back {
     background: linear-gradient(135deg, #7d5fff, #00c6ff);
-    color: #fff;
+    color: white;
     transform: rotateY(180deg);
     align-items: center;
-    font-size: 22px;
+    padding: 25px;
+    font-size: 20px;
+    line-height: 1.6;
     text-align: center;
-    padding: 20px;
-    box-shadow: 0 0 25px rgba(0, 225, 255, .5);
 }
 
 .dadam {
@@ -222,18 +272,23 @@ section {
     background-image: url("./ukam.jpg");
 }
 
+/* GURUHIM */
 
-/* ===== GURUHIM ===== */
 .group-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 280px);
+    grid-template-columns: repeat(3, minmax(0, 280px));
     justify-content: center;
-    gap: 40px;
+    align-items: start;
+    gap: 35px;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
 }
 
 .group-scene {
-    width: 280px;
+    width: 100%;
     height: 340px;
+    min-width: 0;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -256,29 +311,17 @@ section {
     position: absolute;
     inset: 0;
     border-radius: 20px;
+    overflow: hidden;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    overflow: hidden;
-    display: flex;
-}
-
-.group-front {
-    align-items: flex-end;
-    background-size: cover;
-    background-position: center;
-    background-color: #203a43;
-    border: 2px solid rgba(0, 225, 255, .5);
-}
-
-.group-front::before {
-    content: "👤";
-    position: absolute;
-    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90px;
-    opacity: .35;
+}
+
+.group-front {
+    border: 2px solid #00e1ff;
+    background: #17233b;
 }
 
 .group-front img {
@@ -287,69 +330,85 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
-    z-index: 1;
+    object-position: center;
+    display: block;
 }
 
 .group-front span {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     z-index: 2;
     width: 100%;
     padding: 15px;
     text-align: center;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: bold;
-    background: rgba(0, 0, 0, .6);
+    color: white;
+    background: rgba(0, 0, 0, .72);
 }
 
 .group-back {
     transform: rotateY(180deg);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+    gap: 13px;
     padding: 20px;
     text-align: center;
-    color: #fff;
-    box-shadow: 0 0 25px rgba(255, 255, 255, .25);
+    color: white;
 }
 
 .group-back h3 {
-    font-size: 28px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+    font-size: 22px;
+    line-height: 1.3;
 }
 
 .group-back p {
-    font-size: 18px;
+    font-size: 16px;
     background: rgba(255, 255, 255, .2);
-    padding: 8px 18px;
-    border-radius: 30px;
+    padding: 8px 14px;
+    border-radius: 25px;
 }
 
-.back1 { background: linear-gradient(135deg, #7d5fff, #00c6ff); }
-.back2 { background: linear-gradient(135deg, #00dc1a, #0013e0, #00ffb3); }
-.back3 { background: linear-gradient(135deg, #11998e, #38ef7d); }
-.back4 { background: linear-gradient(135deg, #f7971e, #ffd200); }
-.back5 { background: linear-gradient(135deg, #cc2b5e, #753a88); }
-.back6 { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+.back1 {
+    background: linear-gradient(135deg, #7d5fff, #00c6ff);
+}
 
+.back2 {
+    background: linear-gradient(135deg, #00a86b, #0013e0);
+}
 
+.back3 {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+}
 
-/* ===== LOYIHALAR ===== */
+.back4 {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.back5 {
+    background: linear-gradient(135deg, #cc2b5e, #753a88);
+}
+
+.back6 {
+    background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+/* PROJECTS */
+
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 280px));
     justify-content: center;
     gap: 30px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background: rgba(0, 0, 0, .7);
+    min-height: 300px;
+    background: rgba(0, 0, 0, .72);
     border: 1px solid rgba(0, 225, 255, .3);
     border-radius: 20px;
     overflow: hidden;
@@ -357,8 +416,8 @@ section {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px cyan;
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(0, 225, 255, .4);
 }
 
 .project-img {
@@ -376,7 +435,7 @@ section {
 }
 
 .project-card:hover .project-img img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .project-info {
@@ -395,8 +454,8 @@ section {
 
 .project-info p {
     font-size: 15px;
+    line-height: 1.5;
     margin-bottom: 15px;
-    opacity: .85;
 }
 
 .project-btn {
@@ -411,41 +470,42 @@ section {
 }
 
 .project-btn:hover {
-    background: #00e1ff;
-    transform: translateY(-4px);
+    background: #00cfff;
+    color: #061126;
+    transform: translateY(-3px);
 }
 
+/* FOOTER */
 
 footer {
     text-align: center;
-    padding: 40px;
+    padding: 30px 15px;
     background: rgba(0, 0, 0, .8);
-    transition: background .4s, color .4s;
+    color: white;
 }
 
+/* TEMA */
 
-/* ===== TEMA ALMASHTIRGICH ===== */
 .theme-checkbox {
     display: none;
 }
 
 label.theme-switch {
     position: fixed;
-    top: 100px;
-    left: 20px;
+    top: 105px;
+    left: 18px;
     z-index: 2000;
-    width: 80px;
+    width: 75px;
     height: 40px;
     padding: 0 9px;
     border-radius: 50px;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: #203a43;
     border: 2px solid #00e1ff;
     box-shadow: 0 0 15px rgba(0, 225, 255, .5);
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: background .5s, border-color .5s, box-shadow .5s;
 }
 
 label.theme-switch::after {
@@ -456,539 +516,59 @@ label.theme-switch::after {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ffffff, #c9d6ff);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
-    transition: transform .5s cubic-bezier(.68, -0.4, .27, 1.4);
-    z-index: 1;
+    background: white;
+    transition: transform .5s;
 }
 
 label.theme-switch span {
     position: relative;
     z-index: 2;
-    font-size: 17px;
-    line-height: 1;
-    transition: transform .5s, opacity .5s;
-}
-
-label.theme-switch .moon { opacity: 1; }
-label.theme-switch .sun { opacity: .4; }
-
-body.light label.theme-switch {
-    background: linear-gradient(135deg, #56ccf2, #ffd86f);
-    border-color: #ff9f1c;
-    box-shadow: 0 0 18px rgba(255, 159, 28, .7);
+    font-size: 16px;
 }
 
 body.light label.theme-switch::after {
-    transform: translateX(40px);
-    background: linear-gradient(135deg, #fff7d1, #ffffff);
+    transform: translateX(35px);
 }
 
-body.light label.theme-switch .moon {
-    opacity: .4;
-    transform: rotate(-40deg);
-}
+/* LIGHT THEME */
 
-body.light label.theme-switch .sun {
-    opacity: 1;
-    transform: rotate(180deg);
-}
-
-
-/* ===== TUN REJIMI (yaxshilangan) ===== */
-body:not(.light) section {
-    background: rgba(5, 10, 30, .55);
-}
-
-body:not(.light) .title {
-    background: linear-gradient(90deg, #00e1ff, #7d5fff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-
-/* ===== KUN REJIMI (yangi) ===== */
 body.light {
-    background: linear-gradient(135deg, #dff1ff, #fdf3e0, #ffe3ef) fixed;
     color: #1b2540;
+    background: #eaf2ff;
+}
+
+body.light::before {
+    background: rgba(240, 246, 255, .65);
+}
+
+body.light header,
+body.light footer {
+    background: rgba(255, 255, 255, .92);
+    color: #1b2540;
+}
+
+body.light .logo {
+    color: #0077cc;
 }
 
 body.light section {
-    background: transparent;
-    color: #1b2540;
-}
-
-body.light header {
-    background: rgba(255, 255, 255, .85);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
-}
-
-body.light .logo { color: #0077ff; }
-
-body.light footer {
-    background: rgba(255, 255, 255, .85);
     color: #1b2540;
 }
 
 body.light .title {
-    color: #1b2540;
     background: none;
-}
-
-body.light .hero .text span { color: #4700df; }
-
-body.light .photo img { box-shadow: 0 0 40px rgba(255, 159, 28, .6); }
-
-body.light .btn { background: linear-gradient(135deg, #ff9f1c, #508445); }
-
-body.light .card,
-body.light .project-card {
-    background: rgba(255, 255, 255, .9);
     color: #1b2540;
-    border: 1px solid #cfd9ff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
 }
 
-body.light .card h3,
-body.light .project-info h3 { color: #0077ff; }
-
-body.light .card:hover,
-body.light .project-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 119, 255, .35);
-}
-
-body.light .flip-front span,
-body.light .group-front span { color: #fff; }
-
-body.light .flip-back,
-body.light .group-back { box-shadow: 0 0 25px rgba(255, 159, 28, .5); }
-
-
-/* ===== MOBIL ===== */
-@media (max-width: 800px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero .text h1 {
-        font-size: 42px;
-    }
-
-    .title {
-        font-size: 36px;
-    }
-
-    nav a {
-        margin: 5px 5px 0 0;
-        display: inline-block;
-    }
-}
-
-
-/* Guruhim: ekran kichrayganda ustunlar kamayadi */
-@media (max-width: 1100px) {
-    .group-wrapper { grid-template-columns: repeat(2, 280px); }
-}
-
-@media (max-width: 650px) {
-    .group-wrapper { grid-template-columns: 280px; }
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Poppins, sans-serif;
-    scroll-behavior: smooth;
-}
-
-body {
-    background: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564") center/cover fixed;
-    color: white;
-}
-
-/* ================= HEADER ================= */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: rgba(0, 0, 0, .8);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    z-index: 1000;
-    transition: background .4s, color .4s;
-}
-
-.logo {
-    font-size: 30px;
-    font-weight: bold;
-    color: #064a85;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    background: #0077ff;
-    padding: 12px 20px;
-    border-radius: 10px;
-    margin-left: 10px;
-    transition: .3s;
-}
-
-nav a:hover {
-    background: #00e1ff;
-    transform: translateY(-5px);
-}
-
-/* ================= UMUMIY ================= */
-section {
-    padding: 100px 10%;
-    scroll-margin-top: 80px;
-    transition: background .4s, color .4s;
-}
-
-.title {
-    text-align: center;
-    font-size: 50px;
-    margin-bottom: 50px;
-}
-
-/* ================= HERO ================= */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-    padding: 120px 10%;
-}
-
-.hero .text h1 {
-    font-size: 70px;
-}
-
-.hero .text span {
-    color: gold;
-}
-
-.hero .text p {
-    font-size: 22px;
-    margin: 20px 0;
-}
-
-.btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #7d5fff;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: .3s;
-}
-
-.btn:hover {
-    transform: translateY(-5px);
-}
-
-.photo img {
-    width: 400px;
-    max-width: 100%;
-    border-radius: 30px;
-    box-shadow: 0 0 40px cyan;
-}
-
-/* ================= MEN HAQIMDA ================= */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.card {
-    background: rgba(0, 0, 0, .6);
-    padding: 40px 20px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid rgba(0, 225, 255, .3);
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px cyan;
-}
-
-.card h3 {
-    color: #00e1ff;
-    margin-bottom: 10px;
-    font-size: 24px;
-}
-
-.card p {
-    font-size: 20px;
-}
-
-/* ================= OILAM ================= */
-.family-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 60px;
-    width: 100%;
-}
-
-.flip-scene {
-    width: 300px;
-    height: 350px;
-    perspective: 1000px;
-}
-
-.flip-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-}
-
-.flip-scene:hover .flip-card {
-    transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    backface-visibility: hidden;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-.flip-front span {
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-}
-
-.flip-back {
-    background-color: rgb(186, 192, 192);
-    color: #111;
-    transform: rotateY(180deg);
-    align-items: center;
-    font-size: 22px;
-    text-align: center;
-    padding: 20px;
-}
-
-.dadam {
-    background-image: url("./adam.jpg");
-}
-
-.oyim {
-    background-image: url("./onam.jpg");
-}
-
-.ukam {
-    background-image: url("./ukam.jpg");
-}
-
-/* ================= LOYIHALARIM ================= */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background: rgba(0, 0, 0, .7);
-    border: 1px solid rgba(0, 225, 255, .3);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: .4s;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px cyan;
-}
-
-.project-img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-}
-
-.project-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: .5s;
-}
-
-.project-card:hover .project-img img {
-    transform: scale(1.1);
-}
-
-.project-info {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 18px;
-    text-align: center;
-}
-
-.project-info h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: #00e1ff;
-}
-
-.project-info p {
-    font-size: 15px;
-    margin-bottom: 15px;
-    opacity: .85;
-}
-
-.project-btn {
-    margin-top: auto;
-    align-self: center;
-    padding: 10px 26px;
-    background: #0077ff;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: .3s;
-}
-
-.project-btn:hover {
-    background: #00e1ff;
-    transform: translateY(-4px);
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align: center;
-    padding: 40px;
-    background: rgba(0, 0, 0, .8);
-    transition: background .4s, color .4s;
-}
-
-/* ================= TEMA TUGMASI ================= */
-.theme-checkbox {
-    display: none;
-}
-
-label.theme-switch {
-    position: fixed;
-    top: 100px;
-    left: 20px;
-    z-index: 2000;
-    width: 80px;
-    height: 40px;
-    padding: 0 9px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    border: 2px solid #00e1ff;
-    box-shadow: 0 0 15px rgba(0, 225, 255, .5);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: background .5s, border-color .5s, box-shadow .5s;
-}
-
-/* Siljuvchi doira */
-label.theme-switch::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ffffff, #c9d6ff);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .5);
-    transition: transform .5s cubic-bezier(.68, -0.4, .27, 1.4);
-    z-index: 1;
-}
-
-label.theme-switch span {
-    position: relative;
-    z-index: 2;
-    font-size: 17px;
-    line-height: 1;
-    transition: transform .5s, opacity .5s;
-}
-
-label.theme-switch .moon { opacity: 1; }
-label.theme-switch .sun { opacity: .4; }
-
-/* ================= KUN REJIMI (tugma) ================= */
-body.light label.theme-switch {
-    background: linear-gradient(135deg, #56ccf2, #ffd86f);
-    border-color: #ff9f1c;
-    box-shadow: 0 0 18px rgba(255, 159, 28, .7);
-}
-
-body.light label.theme-switch::after {
-    transform: translateX(40px);
-    background: linear-gradient(135deg, #fff7d1, #ffffff);
-}
-
-body.light label.theme-switch .moon {
-    opacity: .4;
-    transform: rotate(-40deg);
-}
-
-body.light label.theme-switch .sun {
-    opacity: 1;
-    transform: rotate(180deg);
-}
-
-/* ================= KUN REJIMI (butun sayt) ================= */
-body.light header,
-body.light footer {
-    background: #fff;
-    color: #111;
-}
-
-body.light section {
-    background: #f0f4ff;
-    color: #111;
+body.light .hero .text span {
+    color: #4700df;
 }
 
 body.light .card,
 body.light .project-card {
-    background: #fff;
-    color: #111;
+    background: rgba(255, 255, 255, .92);
+    color: #1b2540;
     border-color: #cfd9ff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
 }
 
 body.light .card h3,
@@ -996,33 +576,138 @@ body.light .project-info h3 {
     color: #0077ff;
 }
 
-body.light .card:hover,
-body.light .project-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 119, 255, .4);
-}
+/* PLANCHET */
 
-body.light .flip-front span {
-    color: #fff;
-}
+@media (max-width: 1050px) {
+    header {
+        padding: 12px 4%;
+    }
 
-/* ================= TELEFON UCHUN ================= */
-@media (max-width: 800px) {
+    .logo {
+        font-size: 21px;
+    }
+
+    nav a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .group-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 280px));
+    }
+
     .hero {
+        padding-left: 7%;
+        padding-right: 7%;
+        gap: 30px;
+    }
+
+    .photo {
+        flex-basis: 300px;
+        width: 300px;
+    }
+
+    .photo img {
+        height: 300px;
+    }
+}
+
+/* TELEFON */
+
+@media (max-width: 800px) {
+    header {
+        position: relative;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav a {
+        padding: 9px 11px;
+        font-size: 13px;
+    }
+
+    section {
+        padding: 75px 6%;
+        scroll-margin-top: 15px;
+    }
+
+    .hero {
+        min-height: auto;
         flex-direction: column;
         text-align: center;
+        padding-top: 55px;
+        gap: 35px;
+    }
+
+    .hero .text {
+        flex: auto;
     }
 
     .hero .text h1 {
         font-size: 42px;
     }
 
+    .hero .text p {
+        font-size: 16px;
+    }
+
+    .photo {
+        flex: none;
+        width: min(280px, 80vw);
+    }
+
+    .photo img {
+        height: min(280px, 80vw);
+    }
+
     .title {
-        font-size: 36px;
+        font-size: 35px;
+        margin-bottom: 32px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .group-wrapper {
+        grid-template-columns: minmax(0, 300px);
+        gap: 25px;
+    }
+
+    .group-scene {
+        height: 350px;
+    }
+
+    .flip-scene {
+        width: min(280px, 85vw);
+    }
+
+    label.theme-switch {
+        top: 12px;
+        left: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero .text h1 {
+        font-size: 35px;
     }
 
     nav a {
-        margin: 5px 5px 0 0;
-        display: inline-block;
+        font-size: 12px;
+        padding: 8px 9px;
     }
 
+    .group-scene {
+        height: 320px;
+    }
 }
